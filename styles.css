@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Condensed:wght@700&family=Roboto:wght@500&family=Source+Code+Pro&display=swap');
+html, body{
+    margin: 0;
+    height: 100%;
+    font-size: 15px;
+    background-image: linear-gradient(to right, purple, orange);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox*/
+}
+
+#content{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#time{
+    height: 100%;
+    display:flex;
+
+    flex-direction: column;
+    padding-left: 3em;
+    justify-content: center;
+    gap: 1em;
+    overflow: hidden;
+
+}
+.time-slot{
+    display:flex;
+}
+#current-time, #current-am-or-pm{
+    font-family: 'Monoton', cursive;
+    color: white;
+
+    transition: all 0.3s;
+
+    z-index: 2;
+}
+
+#current-time{
+    font-size: 18vmin;
+}
+#current-am-or-pm{
+    align-self: flex-end;
+    font-size: 9vmin;
+}
+.time-slot:hover{
+    text-shadow: 10px 10px rgb(0, 0, 0, 0.5);
+}
+
+.search-location-span{
+    width: 50%;
+    height: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    border-radius: 9999px;
+    
+    background-color: rgb(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all 0.3s;
+
+    z-index: 2;
+    
+    
+}
+
+.search-location-span:hover{
+    background-color: rgb(0, 0, 0);
+}
+#search-location{
+    width: 90%;
+    font-size: 1.6rem;
+
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    z-index: 2;
+}
+#search-location-button{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    background-color: transparent;
+    border:none;
+
+    transition: all 0.3s;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./assets/search/search-white-16.svg);
+}
+
+#search-location-button:hover{
+    background-color: white;
+    background-image: url(./assets/search/search-black-16.svg);
+}
+
+.content-found{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+
+    height: 95%;
+    gap: 1em;
+    margin: 1em;
+
+}
+
+.place{
+    font-family: 'Source Code Pro', sans-serif;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    color:white;
+    border-radius: 25px;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+.side-a{
+    display:grid;
+    grid-template-rows: 1fr 2fr;
+    gap: 1em;
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+.place-data{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 0.3fr;
+    gap: 1em;
+}
+.place-name{
+    grid-column: 1/6;
+    font-size: 4.8rem;
+}
+.place-country{
+    font-size: 1.2rem;
+}
+.place-long{
+    grid-column: 2/4;
+    font-size: 1.2rem;
+}
+.place-lat{
+    grid-column: 4/6;
+    font-size: 1.2rem;
+}
+.place-temp{
+    grid-column: 3/5;
+    grid-row: 1/3;
+    gap: 1em;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    
+}
+
+.place-temp-weather{
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+}
+.place-weather{
+    grid-column: 1/3;
+    grid-row: 1/3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+}
+.place-weather-pic{  
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height:100%;
+}
+.place-weather-desc{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.4rem;
+}
+.place-temp-now{
+    grid-row: 1/4;
+    font-size: 4.8rem;
+    transition: all 0.3s;
+}
+.place-temp-now:hover{
+    background-color: rgb(0, 0, 0);
+}
+.place-humid{
+    font-size: 2.4rem;
+
+}
+
+
+.side-b{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 2fr 1fr 0.3fr;
+    gap: 1em;
+
+    z-index: 2;
+    transition: all 0.3s;
+}
+.place-sunrise-sunset-div{
+    display:grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr;
+
+}
+
+.place-sunrise{
+    grid-column: 1/3;
+}
+.place-sunset{
+    grid-column: 3/5;
+}
+.place-sunrise-pic{
+    background-image: url(./assets/logos/sunrise.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height:100%;
+}
+.place-sunrise-time{
+    font-size: 3.2rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.place-sunset-pic{
+    background-image: url(./assets/logos/sunset.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height:100%;
+}
+.place-sunset-time{
+    font-size: 3.2rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.place-wind{
+    grid-column: 1/5;
+    gap: 1em;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.place-wind-pic{
+    grid-column: 1/3;
+    background-image: url(./assets/logos/wind.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height:100%;
+
+
+}
+
+.place-wind-data{
+    grid-column: 3/5;
+    display:grid;
+    gap:1em;
+
+    font-size: 1.6rem;
+
+}
+.return-back{
+    background-image: url(./assets/logos/home.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height:100%;
+    background-size: 8%;
+    grid-column: 1;
+    background-color: rgb(0, 0, 0, 0.5);
+    border:none;
+    border-radius: 25px;
+    grid-column: 1/5;
+    transition: all 0.3s;
+}
+.return-back:hover{
+    background-color: rgb(0, 0, 0);
+}
+/*animation below */
+.shapes{
+    overflow: hidden;
+    z-index: -1;
+}
+.shapes li {
+    position:absolute;
+	list-style: none;
+	width: 30px;
+	height: 30px;
+    border-radius: 50%; 
+	background: rgba(128, 0, 128, 0.2);
+    border: rgba(128, 0, 128, 0.2);
+	animation: animate 10s linear infinite;
+	bottom: 0;
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    #time{
+        padding-left: 1em;
+        gap: 1em;
+    }
+    .search-location-span{
+        width: 80%;
+        padding-left: 1em;
+        padding-right: 1em;
+    
+        border-radius: 9999px;
+        
+        background-color: rgb(0, 0, 0, 0.2);
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #search-location{
+        width: 90%;
+        font-size: 1.6rem;
+    
+        outline: none;
+        background-color: transparent;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        border: none;
+    }
+    #search-location-button{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    
+        background-color: transparent;
+        border:none;
+    
+    }
+    .content-found{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        height: 90%;
+        gap: 0;
+        margin: 1em;
+    
+    }
+    .side-a{
+        width: 90vmin;
+        overflow:hidden;
+    }
+    .side-b{
+        width: 0;
+        overflow: hidden;
+    }
+    .place-name{
+        font-size: 1.6rem;
+    }
+    .place-country{
+        font-size: 0.6rem;
+    }
+    .place-long{
+        font-size: 0.6rem;
+    }
+    .place-lat{
+        font-size: 0.6rem;
+    }
+    .place-weather-pic{  
+        background-size: 50%;
+    }
+    .place-weather-desc{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+    .place-temp-now{
+        font-size: 1.6rem
+    }
+    .place-humid{
+        font-size: 0.8rem;
+    
+    }
+    .place-wind-pic{
+        background-size: 50%;
+    }
+    
+    .place-wind-data{
+        font-size: 0.8rem;
+    }
+    .place-sunrise-pic{
+        background-size: 50%;
+    }
+    .place-sunrise-time{
+        font-size: 1.6rem;
+    }
+    .place-sunset-pic{
+        background-size: 50%;
+    }
+    .place-sunset-time{
+        font-size: 1.6rem;
+    }
+    .return-back{
+        background-size: 50%;
+    }
+    .place-time-data{
+        font-size: 1.6rem;
+    }
+    .place-time{
+        text-align: center;
+    }
+    .place-time-pic{
+        background-size: 50%;
+    }   
+    .return-back{
+        background-size: 10%;
+    }
+
+  }
